@@ -1,0 +1,108 @@
+<div>
+    <h1 class="display-1 mb-4" style="text-align: center;">Players Information</h1>
+</div>
+<br>
+<c-card class="mb-4">
+</c-card>
+<c-row>
+    <c-col xs>
+        <c-card class="mb-4">
+            <c-card-header>All Players</c-card-header>
+            <c-card-body>
+                <!-- [(ngModel)]="searchText" -->
+                <input class="form-control" type="text" placeholder="Search" [(ngModel)]="searchText">
+                <table [hover]="true" [responsive]="true" [striped]="true" align="middle" cTable class="mb-0 border">
+                    <thead cTableColor="light">
+                        <tr>
+                            <!-- <th class="text-left">
+                                <svg cIcon name="cilPeople"></svg>
+                            </th> -->
+                            <th></th>
+                            <th class="text-left">First Name</th>
+                            <th class="text-left">Last Name</th>
+                            <th class="text-left">CNIC</th>
+                            <th class="text-left">Team</th>
+                            <th></th>
+                            <th></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- | search: searchText" -->
+                        <tr *ngFor="let user of users | search: searchText">
+                            <td></td>
+                            <td class="text-left">
+                                <div>{{ user.name }}</div>
+                                <!-- <c-avatar size="md" src="{{ user.avatar }}"></c-avatar> -->
+                            </td>
+                            <td class="text-left">
+                                <div>{{ user.name }}</div>
+                            </td>
+                            <td class="text-left">
+                                <div>{{ user.activity }}</div>
+                            </td>
+                            <td class="text-left">
+                                {{ user.country }}
+                            </td>
+                            <td></td>
+                            <td>
+                                <button (click)="toggleModal(user)" style=" background-color:#4F5D73" cButton><i class="fa fa-eye "></i></button>
+                                <!-- <a href="/#/register-team "><i class="fa fa-eye "></i></a> -->
+                                <!-- <i class="fa fa-eye "></i> -->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </c-card-body>
+        </c-card>
+    </c-col>
+</c-row>
+<c-card class=" mb-4 "></c-card>
+
+<c-modal id="liveDemoModal" alignment="center" [visible]="visible" (visibleChange)="handleLiveDemoChange($event)">
+    <c-modal-header>
+        <h4 cModalTitle>Fooseball Player: {{userName}}</h4>
+        <button (click)="toggleModalAgain()" cButtonClose></button>
+    </c-modal-header>
+    <c-modal-body>
+        <div style="display: flex;
+        justify-content: center;" class="mb-4">
+            <img src="assets/img/brand/athlete.png" width="150" height="150" alt="Picture of Theodore Roosevelt">
+        </div>
+        <div>
+            <h2>{{userName}}</h2>
+            <h5><i>All rounder</i></h5>
+        </div>
+        <div class="row">
+            <div class="column">
+                <div class="details">
+                    <div class="rating">
+                        <h6 class="primary-text"> 15 </h6>
+                        <h6 class="secondary-text"> Matches </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="details">
+                    <div class="rating">
+                        <h6 class="primary-text"> 18 </h6>
+                        <h6 class="secondary-text"> Points </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="details">
+                    <div class="rating">
+                        <h6 class="primary-text"> 18th </h6>
+                        <h6 class="secondary-text"> Rank </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </c-modal-body>
+    <c-modal-footer>
+        <button (click)="toggleModalAgain()" cButton color="secondary ">
+        Close
+      </button>
+    </c-modal-footer>
+</c-modal>

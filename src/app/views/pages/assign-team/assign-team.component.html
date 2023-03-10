@@ -1,0 +1,10 @@
+<div>
+    <h1 class="display-1" style="text-align: center;">Update Players</h1>
+</div>
+<hr>
+<br><br>
+
+<div>
+    <ng2-smart-table [settings]="settings" [source]="data" (deleteConfirm)="onDeleteConfirm($event)" (userRowSelect)="onRowSelect($event)">
+    </ng2-smart-table>
+</div>

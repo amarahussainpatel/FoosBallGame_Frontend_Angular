@@ -1,0 +1,27 @@
+:host ng2-smart-table-title a:focus {
+    color: #6dd21a;
+}
+
+:host ng2-smart-table thead>tr>th>div {
+    color: #eebb3d;
+}
+
+:host td.ng2-smart-actions a {
+    cursor: pointer;
+    color: #fba71f;
+}
+
+::ng-deep ng2-smart-table thead>tr>th {
+    //background-color: #95A5A6;
+    box-shadow: 0px 0px 3px 0px rgba(154, 96, 96, 0.1);
+    border-radius: 3px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+::ng-deep ng2-smart-table td {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}

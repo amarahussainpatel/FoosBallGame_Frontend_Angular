@@ -1,0 +1,20 @@
+<div style="padding: 15px; width: 80%; margin: auto; border: 10px;">
+<table class="table">
+    <thead class="thead-light">
+      <tr style="background-color: #3C4B64; border: 20px; border-color: black; color: white ;">
+        <th scope="col">Team Name</th>
+        <th scope="col">Captain</th>
+        <th scope="col">Player</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let fooseball of fooseball" style="background-color: white; border-color: black;">
+    <tr>
+    <td>{{fooseball.teamName}}</td>
+    <td>{{fooseball.captain}}</td>
+    <td>{{fooseball.member}}</td>
+    </tr>
+     
+    </tbody>
+  </table>
+
+</div>
