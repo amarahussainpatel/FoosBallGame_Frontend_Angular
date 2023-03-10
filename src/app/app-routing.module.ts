@@ -12,6 +12,7 @@ import { FooseballTeamComponent } from './views/pages/Teams/fooseball-team/foose
 import { RegisterPlayerComponent } from './views/pages/register-player/register-player.component';
 import { AssignTeamComponent } from './views/pages/assign-team/assign-team.component';
 import { PlayerInfoComponent } from './views/pages/player-info/player-info.component';
+import { AssignPlayersComponent } from './views/pages/assign-players/assign-players.component';
 
 const routes: Routes = [
 
@@ -52,7 +53,13 @@ const routes: Routes = [
         path: 'register-players',
        component: RegisterPlayerComponent,
        pathMatch: 'full'
+      },
+      {
+        path: 'assign-players',
+        component: AssignPlayersComponent,
+        pathMatch: 'full'
       }
+      //path:'assign-players'
 
       // {
       //   path: 'theme',

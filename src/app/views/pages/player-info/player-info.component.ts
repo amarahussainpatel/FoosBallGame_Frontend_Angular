@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { Player } from 'src/app/models/player/player';
+import { PlayerService } from 'src/app/services/player.service';
 
 @Component({
   selector: 'app-player-info',
@@ -91,14 +93,31 @@ export class PlayerInfoComponent {
     }
   ];
 
+  playerObj : Array<Player> = [];
   userName = "";
 
-  public visible = false;
-  toggleModal(user) {
-    this.visible = !this.visible;
-    console.log(user);
-    this.userName=user.name;
+  constructor(private service: PlayerService){
   }
+
+  ngOnInit(){
+      this.service.getPlayerList().subscribe(players=>{
+      this.playerObj = players;
+      console.log(this.playerObj);
+    });
+  }
+
+  playerSingle !: Player;
+  
+  //for view modal
+  public visible = false;
+
+  toggleModal(player) {
+    this.visible = !this.visible;
+    console.log(player);
+    this.playerSingle=player;
+    console.log(this.playerSingle)
+  }
+
   toggleModalAgain() {
     this.visible = !this.visible;
   }
@@ -106,6 +125,8 @@ export class PlayerInfoComponent {
   handleLiveDemoChange(event: any) {
     this.visible = event;
   }
+
+
 
   
 }

@@ -13,4 +13,8 @@ export class PlayerService {
   public registerPlayer(player:Player):Observable<any>{
     return this.http.post("http://localhost:8080/api/player/save",player);
   }
+
+  public getPlayerList():Observable<any>{
+    return this.http.get("http://localhost:8080/api/player/get");
+  }
 }

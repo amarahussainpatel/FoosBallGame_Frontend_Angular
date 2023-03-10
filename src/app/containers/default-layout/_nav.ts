@@ -24,10 +24,10 @@ export const navItems: INavData[] = [
         name: 'Add Players',
         url: 'register-players'
       },
-      {
-        name: 'Assign Team',
-        url: 'assign-team'
-      },
+      // {
+      //   name: 'Assign Team',
+      //   url: 'assign-team'
+      // },
       {
         name: 'View All',
         url: 'player-info'
@@ -44,11 +44,11 @@ export const navItems: INavData[] = [
         url: 'register-team'
       },
       {
-        name: 'View All',
-        url: '/base/breadcrumbs'
+        name: 'Assign Players',
+        url: 'assign-players'
       },
       {
-        name: 'Child 3',
+        name: 'View All',
         url: '/base/cards'
       },
     ]

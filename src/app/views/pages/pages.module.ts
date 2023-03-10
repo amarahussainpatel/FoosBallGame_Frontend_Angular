@@ -18,6 +18,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PlayerInfoComponent } from './player-info/player-info.component';
 import { SearchPipe } from './search-pipe/search.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AssignPlayersComponent } from './assign-players/assign-players.component';
 
 
 
@@ -35,6 +36,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AssignTeamComponent,
     PlayerInfoComponent,
     SearchPipe,
+    AssignPlayersComponent,
   ],
   imports: [
     CommonModule,

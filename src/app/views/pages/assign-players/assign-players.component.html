@@ -1,13 +1,22 @@
 <div>
-    <h1 class="display-1 mb-4" style="text-align: center;">Players Information</h1>
+    <h1 class="display-1" style="text-align: center;">Assign Players</h1>
 </div>
-<br>
-<c-card class="mb-4">
-</c-card>
+<hr>
 <c-row>
+    <c-col [md]="2"></c-col>
+    <c-col [md]="8">
+        <label cLabel for="">Choose Team</label>
+        <select #teams cSelect id="autoSizingSelect" [(ngModel)]="selectedTeam">
+            <option *ngFor="let value of values" value="{{value}}" >{{value}}</option>
+        </select>
+    </c-col>
+    <c-col [md]="2"></c-col>
+</c-row>
+
+<c-row *ngIf="selectedTeam!=''" class="mt-4">
     <c-col xs>
         <c-card class="mb-4">
-            <c-card-header>All Players</c-card-header>
+            <c-card-header>Add Players in Team: <b>{{selectedTeam}}</b> </c-card-header>
             <c-card-body>
                 <!-- [(ngModel)]="searchText" -->
                 <input class="form-control" type="text" placeholder="Search" [(ngModel)]="searchText">
@@ -21,7 +30,7 @@
                             <th class="text-left">First Name</th>
                             <th class="text-left">Last Name</th>
                             <th class="text-left">CNIC</th>
-                            <th class="text-left">Team</th>
+                            <th class="text-left">Style</th>
                             <th></th>
                             <th></th>
                         </tr>
@@ -41,13 +50,13 @@
                                 <div>{{ p.cnic }}</div>
                             </td>
                             <td class="text-left">
-                                <p>XYZ</p>
+                                <p>{{p.playerSkills.style}}</p>
                             </td>
                             <td></td>
                             <td>
-                                <button (click)="toggleModal(p)" style=" background-color:#4F5D73" cButton><i class="fa fa-eye "></i></button>
-                                <!-- <a href="/#/register-team "><i class="fa fa-eye "></i></a> -->
-                                <!-- <i class="fa fa-eye "></i> -->
+                                <button (click)="toggleModal(p)" style=" background-color:#4F5D73" cButton>Add Player</button>
+                                <!-- <a href="/#/register-team"><i class="fa fa-eye"></i></a> -->
+                                <!-- <i class="fa fa-eye"></i> -->
                             </td>
                         </tr>
                     </tbody>
@@ -56,7 +65,6 @@
         </c-card>
     </c-col>
 </c-row>
-<c-card class=" mb-4 "></c-card>
 
 <c-modal id="liveDemoModal" alignment="center" [visible]="visible" (visibleChange)="handleLiveDemoChange($event)">
     <c-modal-header>
@@ -72,7 +80,10 @@
             <h2 *ngIf="visible">{{playerSingle.firstName}}</h2>
             <h5 *ngIf="visible"><i>{{playerSingle.playerSkills.style}}</i></h5>
         </div>
-        <div class="row">
+
+        <br>
+        <h6 *ngIf="visible">Are you sure you want to add <b>{{playerSingle.firstName}}</b> to <b>{{selectedTeam}} ?</b></h6>
+        <!-- <div class="row">
             <div class="column">
                 <div class="details">
                     <div class="rating">
@@ -97,7 +108,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </c-modal-body>
     <c-modal-footer>
         <button (click)="toggleModalAgain()" cButton color="secondary">
