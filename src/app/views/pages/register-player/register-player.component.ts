@@ -13,11 +13,11 @@ export class RegisterPlayerComponent {
 
   playerObj : Player
 
-  constructor(private service: PlayerService){
+  constructor(private service: PlayerService){ //dependency injection -- using service in constructor - private variable makes it accessibe thorugh out the class
     this.playerObj = new Player();
   }
 
-  registerPlayer(){
+  registerPlayer(){ 
     console.log(JSON.stringify(this.playerObj));
     this.service.registerPlayer(this.playerObj).subscribe(res=>{
         console.log(res);

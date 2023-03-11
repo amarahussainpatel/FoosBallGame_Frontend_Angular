@@ -6,7 +6,7 @@
     <c-col [md]="2"></c-col>
     <c-col [md]="8">
         <label cLabel for="">Choose Team</label>
-        <select #teams cSelect id="autoSizingSelect" [(ngModel)]="selectedTeam">
+        <select cSelect id="autoSizingSelect" [(ngModel)]="selectedTeam">
             <option *ngFor="let value of values" value="{{value}}" >{{value}}</option>
         </select>
     </c-col>

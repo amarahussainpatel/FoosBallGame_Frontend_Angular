@@ -1,0 +1,52 @@
+<div>
+    <h1 class="display-1" style="text-align: center;">Choose Teams</h1>
+</div>
+<hr>
+
+<c-row class="mt-4">
+    <c-col xs>
+        <c-card class="mb-4">
+            <c-card-header>Choose teams:
+            </c-card-header>
+            <c-card-body>
+                <!-- [(ngModel)]="searchText" -->
+                <input class="form-control" type="text" placeholder="Search" [(ngModel)]="searchText">
+                <table [hover]="true" [responsive]="true" [striped]="true" align="middle" cTable class="mb-0 border">
+                    <thead cTableColor="light">
+                        <tr>
+                            <!-- <th class="text-left">
+                                <svg cIcon name="cilPeople"></svg>
+                            </th> -->
+                            <th></th>
+                            <th class="text-left">Team ID</th>
+                            <th class="text-left">Team Name</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- | search: searchText" -->
+                        <tr *ngFor="let t of teams | search: searchText">
+                            <ng-container *ngIf="t.isAdded">
+                                <td></td>
+                                <td class="text-left">
+                                    <div>{{ t.id }}</div>
+                                    <!-- <c-avatar size="md" src="{{ user.avatar }}"></c-avatar> -->
+                                </td>
+                                <td class="text-left">
+                                    <div>{{ t.name }}</div>
+                                </td>
+                                <td></td>
+                                <td>
+                                    <button (click)="teamAdded(t)" style=" background-color:#4F5D73" cButton>Add Team</button>
+                                    <!-- <a href="/#/register-team"><i class="fa fa-eye"></i></a> -->
+                                    <!-- <i class="fa fa-eye"></i> -->
+                                </td>
+                            </ng-container>
+                        </tr>
+                    </tbody>
+                </table>
+            </c-card-body>
+        </c-card>
+    </c-col>
+</c-row>

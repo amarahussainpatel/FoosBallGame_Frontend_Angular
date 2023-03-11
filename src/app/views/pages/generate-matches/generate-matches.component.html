@@ -1,0 +1,23 @@
+<div>
+    <h1 class="display-1" style="text-align: center;">Choose Teams</h1>
+</div>
+<hr>
+
+<c-row>
+    <c-col [md]="2"></c-col>
+    <c-col [md]="4">
+        <label cLabel for="">Choose Team 1</label>
+        <select cSelect id="autoSizingSelect" [(ngModel)]="selectedTeam1">
+            <option *ngFor="let team of teams" value="{{team}}" >{{team}}</option>
+        </select>
+    </c-col>
+    <c-col [md]="4">
+        <label cLabel for="">Choose Team 2</label>
+        <select cSelect id="autoSizingSelect" [(ngModel)]="selectedTeam1">
+            <ng-container *ngFor="let team of teams">
+                <option *ngIf="team != selectedTeam1" value="{{team}}" >{{team}}</option>
+            </ng-container>
+        </select>
+    </c-col>
+    <c-col [md]="2"></c-col>
+</c-row>

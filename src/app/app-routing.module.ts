@@ -13,6 +13,9 @@ import { RegisterPlayerComponent } from './views/pages/register-player/register-
 import { AssignTeamComponent } from './views/pages/assign-team/assign-team.component';
 import { PlayerInfoComponent } from './views/pages/player-info/player-info.component';
 import { AssignPlayersComponent } from './views/pages/assign-players/assign-players.component';
+import { CreateTournamentComponent } from './views/pages/create-tournament/create-tournament.component';
+import { GenerateMatchesComponent } from './views/pages/generate-matches/generate-matches.component';
+import { ChooseTeamsComponent } from './views/pages/choose-teams/choose-teams.component';
 
 const routes: Routes = [
 
@@ -57,6 +60,21 @@ const routes: Routes = [
       {
         path: 'assign-players',
         component: AssignPlayersComponent,
+        pathMatch: 'full'
+      },
+      {
+        path:'create-tournament',
+        component: CreateTournamentComponent,
+        pathMatch: 'full'
+      },
+      {
+        path:'choose-team',
+        component: ChooseTeamsComponent,
+        pathMatch: 'full'
+      },
+      {
+        path:'create-matches',
+        component: GenerateMatchesComponent,
         pathMatch: 'full'
       }
       //path:'assign-players'

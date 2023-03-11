@@ -16,18 +16,14 @@ export const navItems: INavData[] = [
     title: true
   },
   {
-    name: 'Players',
+    name: 'Tournament',
     url: '/base',
     iconComponent: { name: 'cil-user' },
     children: [
       {
-        name: 'Add Players',
-        url: 'register-players'
+        name: 'Add Tournament',
+        url: 'create-tournament'
       },
-      // {
-      //   name: 'Assign Team',
-      //   url: 'assign-team'
-      // },
       {
         name: 'View All',
         url: 'player-info'
@@ -50,6 +46,25 @@ export const navItems: INavData[] = [
       {
         name: 'View All',
         url: '/base/cards'
+      },
+    ]
+  },
+  {
+    name: 'Players',
+    url: '/base',
+    iconComponent: { name: 'cil-user' },
+    children: [
+      {
+        name: 'Add Players',
+        url: 'register-players'
+      },
+      // {
+      //   name: 'Assign Team',
+      //   url: 'assign-team'
+      // },
+      {
+        name: 'View All',
+        url: 'player-info'
       },
     ]
   },

@@ -19,6 +19,9 @@ import { PlayerInfoComponent } from './player-info/player-info.component';
 import { SearchPipe } from './search-pipe/search.pipe';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AssignPlayersComponent } from './assign-players/assign-players.component';
+import { CreateTournamentComponent } from './create-tournament/create-tournament.component';
+import { GenerateMatchesComponent } from './generate-matches/generate-matches.component';
+import { ChooseTeamsComponent } from './choose-teams/choose-teams.component';
 
 
 
@@ -37,6 +40,9 @@ import { AssignPlayersComponent } from './assign-players/assign-players.componen
     PlayerInfoComponent,
     SearchPipe,
     AssignPlayersComponent,
+    CreateTournamentComponent,
+    GenerateMatchesComponent,
+    ChooseTeamsComponent,
   ],
   imports: [
     CommonModule,

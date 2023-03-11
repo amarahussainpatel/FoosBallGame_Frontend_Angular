@@ -44,7 +44,7 @@ export class AssignPlayersComponent {
   }
 
   selectedTeam = '';
-	onSelected(value:string): void {
-		this.selectedTeam = value;
-	}
+	// onSelected(value:string): void {
+	// 	this.selectedTeam = value;
+	// }
 }
