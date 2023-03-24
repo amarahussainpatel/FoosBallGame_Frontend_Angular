@@ -1,14 +1,14 @@
 import { Player } from "../player/player"
 
 export class Team {
-    id!: number
-    name!: String
-    player!: Array<Player>
-    isAdded!: boolean
+    id!: number | null
+    name?: String
+    // player!: Array<Player>
+    // isAdded!: boolean
    
-    constructor(id,name,isAdded){
-        this.id = id;
-        this.name=name
-        this.isAdded=isAdded;
-    }
+    // constructor(id,name,isAdded){
+    //     this.id = id;
+    //     this.name=name
+    //     this.isAdded=isAdded;
+    // }
 }

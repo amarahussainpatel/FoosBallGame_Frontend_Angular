@@ -7,8 +7,14 @@ export class Player {
     lastName!: String
     cnic!: number
     playerSkills!: PlayerSkills
-    team!: Team
+    team: Team 
     constructor(){
         this.playerSkills=new PlayerSkills();
+        this.team=new Team();
+        this.team.name="";
+    }
+
+    setTeam(myname){
+        this.team.name=myname;
     }
 }

@@ -22,6 +22,7 @@ import { AssignPlayersComponent } from './assign-players/assign-players.componen
 import { CreateTournamentComponent } from './create-tournament/create-tournament.component';
 import { GenerateMatchesComponent } from './generate-matches/generate-matches.component';
 import { ChooseTeamsComponent } from './choose-teams/choose-teams.component';
+import { ViewAllTeamsComponent } from './view-all-teams/view-all-teams.component';
 
 
 
@@ -43,6 +44,7 @@ import { ChooseTeamsComponent } from './choose-teams/choose-teams.component';
     CreateTournamentComponent,
     GenerateMatchesComponent,
     ChooseTeamsComponent,
+    ViewAllTeamsComponent,
   ],
   imports: [
     CommonModule,

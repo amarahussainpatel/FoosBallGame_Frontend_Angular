@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Player } from 'src/app/models/player/player';
+import { Team } from 'src/app/models/teams/team';
 import { PlayerService } from 'src/app/services/player.service';
+import { TeamsService } from 'src/app/services/teams.service';
 
 @Component({
   selector: 'app-assign-players',
@@ -11,9 +13,10 @@ export class AssignPlayersComponent {
   values = ["one","two","three"];
   searchText = '';
   playerObj : Array<Player> = [];
-  userName = "";
-
-  constructor(private service: PlayerService){
+  teamObj: Array<Team> = [];
+  selectedTeam : Team;
+  
+  constructor( private teamService : TeamsService, private service: PlayerService){
   }
 
   ngOnInit(){
@@ -21,6 +24,15 @@ export class AssignPlayersComponent {
       this.playerObj = players;
       console.log(this.playerObj);
     });
+    this.teamService.getTeamList().subscribe(teams=>{
+      this.teamObj = teams;
+      console.log(this.teamObj);
+    })
+    
+  }
+
+  myFunc(p){
+    console.log(p);
   }
 
   playerSingle !: Player;
@@ -35,7 +47,19 @@ export class AssignPlayersComponent {
     console.log(this.playerSingle)
   }
 
-  toggleModalAgain() {
+  toggleModalAgain(myPlayer) {
+    console.log("selectedTeam"+this.selectedTeam)
+    if(myPlayer.team == null){
+      myPlayer.team = new Team();
+      myPlayer.team.name=this.selectedTeam;
+    }
+    //player.team.name = this.selectedTeam;
+    myPlayer.team.name=this.selectedTeam
+    this.service.addTeam(myPlayer).subscribe(res =>{
+      console.log(res);
+      //window.location.reload();
+    });
+    console.log(myPlayer);
     this.visible = !this.visible;
   }
 
@@ -43,8 +67,13 @@ export class AssignPlayersComponent {
     this.visible = event;
   }
 
-  selectedTeam = '';
+  toggleModalAgain_close(){
+    this.visible = !this.visible;
+  }
+
+  
 	// onSelected(value:string): void {
 	// 	this.selectedTeam = value;
 	// }
+  
 }

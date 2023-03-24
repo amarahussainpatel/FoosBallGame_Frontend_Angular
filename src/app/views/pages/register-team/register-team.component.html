@@ -7,8 +7,8 @@
     <c-col [md]="9">
         <form cForm class="row g-3">
             <c-col [md]="8">
-                <label cLabel for="inputEmail4">Team Name</label>
-                <input cFormControl id="inputEmail4" type="email" />
+                <label cLabel for="teamName">Team Name</label>
+                <input cFormControl id="teamName" type="text" [(ngModel)]="teamObj.name" [ngModelOptions]="{standalone: true}" />
             </c-col>
             <!-- <c-col [md]="5">
                 <label cLabel for="inputEmail4">Tournament</label>
@@ -16,7 +16,7 @@
                 <option *ngFor="let value of values" value="1">{{value}}</option>
               </select>
             </c-col> -->
-            <c-col [md]="8">
+            <!-- <c-col [md]="8">
                 <label cLabel for="inputEmail4">Captain Name</label>
                 <input cFormControl id="inputEmail4" type="email" />
             </c-col>
@@ -32,10 +32,13 @@
                 <select *ngIf="!checkProperty" cSelect id="autoSizingSelect">
                 <option *ngFor="let value of values" value="{{value}}" >{{value}}</option>
               </select>
-            </c-col>
+            </c-col> -->
             <c-col [xs]="12">
-                <button cButton type="submit">Register</button>
+                <button cButton (click)="registerTeams()" type="submit">Register</button>
             </c-col>
+            <div class="alert" *ngIf="isRegistered">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> This is an alert box.
+            </div>
         </form>
     </c-col>
     <c-col [md]="3">

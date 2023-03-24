@@ -40,8 +40,11 @@
                             <td class="text-left">
                                 <div>{{ p.cnic }}</div>
                             </td>
-                            <td class="text-left">
-                                <p>XYZ</p>
+                            <td *ngIf="p.team" class="text-left">
+                                <p>{{ p.team.name }}</p>
+                            </td>
+                            <td *ngIf="!p.team" class="text-left">
+                                <p> </p>
                             </td>
                             <td></td>
                             <td>
