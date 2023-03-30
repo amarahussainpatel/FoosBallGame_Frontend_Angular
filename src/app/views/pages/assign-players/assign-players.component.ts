@@ -15,8 +15,15 @@ export class AssignPlayersComponent {
   playerObj : Array<Player> = [];
   teamObj: Array<Team> = [];
   selectedTeam : Team;
+  Team1 : Team
   
   constructor( private teamService : TeamsService, private service: PlayerService){
+    this.selectedTeam=new Team();
+    this.Team1 = new Team();
+    // // this.Team1.id=1;
+    // // this.Team1.name="Karachi Kings"
+    // this.Team1 = new Team().setID(1).setName("Karachi Kings");
+    // this.teamObj.push(this.Team1);
   }
 
   ngOnInit(){
@@ -27,40 +34,37 @@ export class AssignPlayersComponent {
     this.teamService.getTeamList().subscribe(teams=>{
       this.teamObj = teams;
       console.log(this.teamObj);
-    })
-    
+    }) 
   }
 
-  myFunc(p){
-    console.log(p);
+  myFunc(selTeam : Team){
+    console.log(selTeam);
   }
 
   playerSingle !: Player;
-  
   //for view modal
   public visible = false;
 
-  toggleModal(player) {
+  toggleModal(player: Player) {
     this.visible = !this.visible;
     console.log(player);
     this.playerSingle=player;
     console.log(this.playerSingle)
   }
 
-  toggleModalAgain(myPlayer) {
-    console.log("selectedTeam"+this.selectedTeam)
+  toggleModalAgain(myPlayer : Player) {
+    console.log("selectedTeam"+this.selectedTeam.name)
+
     if(myPlayer.team == null){
       myPlayer.team = new Team();
-      myPlayer.team.name=this.selectedTeam;
+      myPlayer.team=this.selectedTeam;
     }
-    //player.team.name = this.selectedTeam;
-    myPlayer.team.name=this.selectedTeam
+    console.log(myPlayer);
     this.service.addTeam(myPlayer).subscribe(res =>{
-      console.log(res);
-      //window.location.reload();
+    console.log(res);
     });
     console.log(myPlayer);
-    this.visible = !this.visible;
+    this.visible = !this.visible; //for modal
   }
 
   handleLiveDemoChange(event: any) {
@@ -70,10 +74,5 @@ export class AssignPlayersComponent {
   toggleModalAgain_close(){
     this.visible = !this.visible;
   }
-
-  
-	// onSelected(value:string): void {
-	// 	this.selectedTeam = value;
-	// }
   
 }

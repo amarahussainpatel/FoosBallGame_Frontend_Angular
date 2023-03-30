@@ -6,7 +6,7 @@
     <c-col [md]="2"></c-col>
     <c-col [md]="8">
         <label cLabel for="">Choose Team</label>
-        <select cSelect id="autoSizingSelect" [(ngModel)]="selectedTeam" (onchange)="myFunc(selectedTeam)">
+        <select cSelect id="autoSizingSelect" [(ngModel)]="selectedTeam.name" (onchange)="myFunc(selectedTeam)">
             <option *ngFor="let value of teamObj" value="{{value.name}}" >{{value.name}}
                 <!-- <ng-container *ngIf="value!=null"></ng-container> -->
             </option>
@@ -15,10 +15,10 @@
     <c-col [md]="2"></c-col>
 </c-row>
 
-<c-row *ngIf="selectedTeam" class="mt-4">
+<c-row *ngIf="selectedTeam.name" class="mt-4">
     <c-col xs>
         <c-card class="mb-4">
-            <c-card-header>Add Players in Team: <b>{{selectedTeam}}</b> </c-card-header>
+            <c-card-header>Add Players in Team: <b>{{selectedTeam.name}}</b> </c-card-header>
             <c-card-body>
                 <!-- [(ngModel)]="searchText" -->
                 <input class="form-control" type="text" placeholder="Search" [(ngModel)]="searchText">
@@ -86,7 +86,7 @@
         </div>
 
         <br>
-        <h6 *ngIf="visible">Are you sure you want to add <b>{{playerSingle.firstName}}</b> to <b>{{selectedTeam}} ?</b></h6>
+        <h6 *ngIf="visible">Are you sure you want to add <b>{{playerSingle.firstName}}</b> to <b>{{selectedTeam.name}} ?</b></h6>
         <!-- <div class="row">
             <div class="column">
                 <div class="details">
